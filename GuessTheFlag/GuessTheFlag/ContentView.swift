@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
   var body: some View {
-    VStack {
-      Text("Hello World")
-      Text("This is another text view")
+    ZStack {
+      Color.red.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+      Text("Your content")
     }
   }
 }
