@@ -14,6 +14,8 @@ struct ContentView: View {
   @State private var tipPercentage = 2
   private let tipPercentages = [10, 15, 20, 25, 0]
   
+  private var shouldDisplayRedFont: Bool { tipPercentages[tipPercentage] == 0 }
+  
   private var totalPerPerson: Double {
     let numberOfPeople = Double(self.numberOfPeople) ?? 0
     let peopleCount = Double(numberOfPeople + 2)
@@ -64,6 +66,7 @@ struct ContentView: View {
         
         Section(header: Text("Total amount")) {
           Text("$\(totalAmount, specifier: "%.2f")")
+            .foregroundColor(shouldDisplayRedFont ? .red : .black)
         }
       }.navigationBarTitle("WeSplit")
     }
