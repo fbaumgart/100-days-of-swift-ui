@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        Text("Hello, world!")
-            .padding()
+  
+  @State private var sleepAmount = 8.0
+  @State private var wakeUp = Date()
+  
+  var body: some View {
+    Form {
+      DatePicker("Please enter a date", selection: $wakeUp)
+        .labelsHidden()
     }
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  static var previews: some View {
+    ContentView()
+  }
 }
