@@ -11,6 +11,7 @@
 		1805E988263FF41500163926 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805E987263FF41500163926 /* ContentView.swift */; };
 		1805E98A263FF41600163926 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1805E989263FF41600163926 /* Assets.xcassets */; };
 		1805E98D263FF41600163926 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1805E98C263FF41600163926 /* Preview Assets.xcassets */; };
+		18FBA6D62641E93E0071A073 /* SleepCalculator.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 18FBA6D52641E93E0071A073 /* SleepCalculator.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		1805E989263FF41600163926 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1805E98C263FF41600163926 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1805E98E263FF41600163926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18FBA6D52641E93E0071A073 /* SleepCalculator.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = SleepCalculator.mlmodel; path = ../../SleepCalculator.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				1805E985263FF41500163926 /* BetterRestApp.swift */,
 				1805E987263FF41500163926 /* ContentView.swift */,
+				18FBA6D52641E93E0071A073 /* SleepCalculator.mlmodel */,
 				1805E989263FF41600163926 /* Assets.xcassets */,
 				1805E98E263FF41600163926 /* Info.plist */,
 				1805E98B263FF41600163926 /* Preview Content */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18FBA6D62641E93E0071A073 /* SleepCalculator.mlmodel in Sources */,
 				1805E988263FF41500163926 /* ContentView.swift in Sources */,
 				1805E986263FF41500163926 /* BetterRestApp.swift in Sources */,
 			);
