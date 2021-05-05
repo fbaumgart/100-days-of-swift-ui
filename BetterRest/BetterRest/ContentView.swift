@@ -13,15 +13,15 @@ struct ContentView: View {
   @State private var sleepAmount = 8.0
   @State private var coffeeAmount = 1
   
-  @State private var alertTitle = ""
-  @State private var alertMessage = ""
-  @State private var showingAlert = false
+  private var estimatedBedtime: String {
+    calculateBedtime()
+  }
   
   private static var defaultWakeTime: Date {
-      var components = DateComponents()
-      components.hour = 7
-      components.minute = 0
-      return Calendar.current.date(from: components) ?? Date()
+    var components = DateComponents()
+    components.hour = 7
+    components.minute = 0
+    return Calendar.current.date(from: components) ?? Date()
   }
   
   var body: some View {
@@ -49,22 +49,14 @@ struct ContentView: View {
         }
         
         Section(header: Text("Your ideal bedtime is:")) {
-          Text("")
+          Text(estimatedBedtime)
         }
       }
       .navigationBarTitle("BetterRest")
-      .navigationBarItems(trailing:
-                            Button(action: calculateBedtime) {
-                              Text("Calculate")
-                            }
-      )
-      .alert(isPresented: $showingAlert) {
-          Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")))
-      }
     }
   }
   
-  func calculateBedtime() {
+  private func calculateBedtime() -> String {
     let model = SleepCalculator()
     let components = Calendar.current.dateComponents([.hour, .minute], from: wakeUp)
     let hour = (components.hour ?? 0) * 60 * 60
@@ -75,14 +67,10 @@ struct ContentView: View {
       let sleepTime = wakeUp - prediction.actualSleep
       let formatter = DateFormatter()
       formatter.timeStyle = .short
-
-      alertMessage = formatter.string(from: sleepTime)
-      alertTitle = "Your ideal bedtime is…"
+      return formatter.string(from: sleepTime)
     } catch {
-      alertTitle = "Error"
-      alertMessage = "Sorry, there was a problem calculating your bedtime."
+      return "Sorry, there was a problem calculating your bedtime."
     }
-    showingAlert = true
   }
 }
 
