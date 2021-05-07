@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		187C70F726457CE6009A6229 /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = 187C70F626457CE6009A6229 /* start.txt */; };
 		1881ADD7264439FF000B4234 /* WordScrambleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1881ADD6264439FF000B4234 /* WordScrambleApp.swift */; };
 		1881ADD9264439FF000B4234 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1881ADD8264439FF000B4234 /* ContentView.swift */; };
 		1881ADDB26443A01000B4234 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1881ADDA26443A01000B4234 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		187C70F626457CE6009A6229 /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = start.txt; path = "../../../HackingWithSwift/SwiftUI/project5-files/start.txt"; sourceTree = "<group>"; };
 		1881ADD3264439FF000B4234 /* WordScramble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordScramble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1881ADD6264439FF000B4234 /* WordScrambleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordScrambleApp.swift; sourceTree = "<group>"; };
 		1881ADD8264439FF000B4234 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 		1881ADD5264439FF000B4234 /* WordScramble */ = {
 			isa = PBXGroup;
 			children = (
+				187C70F626457CE6009A6229 /* start.txt */,
 				1881ADD6264439FF000B4234 /* WordScrambleApp.swift */,
 				1881ADD8264439FF000B4234 /* ContentView.swift */,
 				1881ADDA26443A01000B4234 /* Assets.xcassets */,
@@ -127,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1881ADDE26443A01000B4234 /* Preview Assets.xcassets in Resources */,
+				187C70F726457CE6009A6229 /* start.txt in Resources */,
 				1881ADDB26443A01000B4234 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
