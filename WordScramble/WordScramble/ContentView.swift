@@ -16,6 +16,7 @@ struct ContentView: View {
   @State private var errorTitle = ""
   @State private var errorMessage = ""
   @State private var showingError = false
+  @State private var playerScore = 0
   
   var body: some View {
     NavigationView {
@@ -29,6 +30,8 @@ struct ContentView: View {
           Image(systemName: "\($0.count).circle")
           Text($0)
         }
+        
+        Text("Your score: \(playerScore)")
       }
       .navigationBarTitle(rootWord)
       .navigationBarItems(leading:
@@ -87,6 +90,10 @@ struct ContentView: View {
     return true
   }
   
+  private func isNotTheSame(word: String, root: String) -> Bool {
+    return !word.elementsEqual(root)
+  }
+  
   private func isLongEnough(word: String, minLenght: Int) -> Bool {
     word.count > minLenght
   }
@@ -105,6 +112,11 @@ struct ContentView: View {
     
     // exit if the remaining string is empty
     guard answer.count > 0 else {
+      return
+    }
+    
+    guard isNotTheSame(word: answer, root: rootWord) else {
+      wordError(title: "Word same as root", message: "Should not be a root word!")
       return
     }
     
