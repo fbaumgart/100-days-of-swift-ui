@@ -82,6 +82,10 @@ struct ContentView: View {
     return true
   }
   
+  private func isLongEnough(word: String, minLenght: Int) -> Bool {
+    word.count > minLenght
+  }
+  
   private func isReal(word: String) -> Bool {
       let checker = UITextChecker()
       let range = NSRange(location: 0, length: word.utf16.count)
@@ -96,6 +100,11 @@ struct ContentView: View {
     
     // exit if the remaining string is empty
     guard answer.count > 0 else {
+      return
+    }
+    
+    guard isLongEnough(word: answer, minLenght: 3) else {
+      wordError(title: "Word too short", message: "Try word longer than 3 characters!")
       return
     }
     
