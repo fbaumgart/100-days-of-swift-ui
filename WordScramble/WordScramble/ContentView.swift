@@ -63,6 +63,9 @@ struct ContentView: View {
         // 4. Pick one random word, or use "silkworm" as a sensible default
         rootWord = allWords.randomElement() ?? "silkworm"
         
+        // 5. zeroing player score
+        playerScore = 0
+        
         // If we are here everything has worked, so we can exit
         return
       }
@@ -106,6 +109,10 @@ struct ContentView: View {
       return misspelledRange.location == NSNotFound
   }
   
+  private func calculateScore(word: String) {
+    playerScore += word.count
+  }
+  
   private func addNewWord() {
     // lowercase and trim the word, to make sure we don't add duplicate words with case differences
     let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
@@ -140,6 +147,7 @@ struct ContentView: View {
         return
     }
     
+    calculateScore(word: answer)
     usedWords.insert(answer, at: 0)
     newWord = ""
   }
