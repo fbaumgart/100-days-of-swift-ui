@@ -26,9 +26,9 @@ struct ContentView: View {
   @State private var scoreTitle = ""
   @State private var playerScore = 0
   @State private var alertMessage = Text("")
-  @State private var correctFlagTapped = false
   @State private var wrongFlagOpacity = 1.0
-  @State private var animationAmount = 0.0
+  @State private var playerAnswer = 3
+  @State private var angle = 0.0
   
   var body: some View {
     ZStack {
@@ -45,13 +45,13 @@ struct ContentView: View {
             self.flagTapped(number)
           }) {
             FlagImage(country: countries[number])
-              .animation(correctAnswer == number ? .easeOut : nil)
-              .opacity(correctAnswer == number ? 1 : wrongFlagOpacity)
-              .transition(correctAnswer == number ? .identity : .opacity)
               .rotation3DEffect(
-                .degrees(correctAnswer == number ? animationAmount : .zero),
+                .degrees((correctAnswer == number) && (number == playerAnswer) ? angle : .zero),
                 axis: (x: 0.0, y: 1.0, z: 0.0)
               )
+              .rotationEffect(Angle(degrees: (number == playerAnswer) && (number != correctAnswer) ? angle : 0))
+              .animation((number == playerAnswer) && (number != correctAnswer) ? .interpolatingSpring(stiffness: 1000, damping: 5) : .default)
+              .opacity(correctAnswer == number ? 1 : wrongFlagOpacity)
           }
         }
         Spacer()
@@ -64,32 +64,46 @@ struct ContentView: View {
     }
   }
   
-  func flagTapped(_ number: Int) {
-    if number == correctAnswer {
-      scoreTitle = "Correct"
-      playerScore += 10
-      wrongFlagOpacity -= 0.75
-      withAnimation {
-          self.animationAmount += 360
-      }
-      alertMessage = Text("Your score is \(playerScore)")
-      correctFlagTapped = true
-    } else {
-      scoreTitle = "Wrong"
-      alertMessage = Text("That's the flag of \(countries[number])!")
-      playerScore -= 10
-      wrongFlagOpacity -= 0.75
-      correctFlagTapped = false
-    }
-    
+  private func flagTapped(_ number: Int) {
+    playerAnswer = number
+    wrongFlagOpacity -= 0.75
+    let isAnswerCorrect = number == correctAnswer
+    setScore(isAnswerCorrect)
+    setAlertContent(isAnswerCorrect, tappedFlagName: countries[number])
+    setAngleForAnimation(isAnswerCorrect)
     showingScore = true
   }
   
-  func askQuestion() {
+  private func askQuestion() {
     countries.shuffle()
     correctAnswer = Int.random(in: 0...2)
     wrongFlagOpacity = 1
-    animationAmount = 0
+    playerAnswer = 3
+  }
+  
+  private func setAngleForAnimation(_ answerCorrect: Bool) {
+    withAnimation {
+      angle = answerCorrect ? 360 : 15
+    }
+    angle = 0
+  }
+  
+  private func setScore(_ answerCorrect: Bool) {
+    if answerCorrect {
+      playerScore += 10
+    } else {
+      playerScore -= 10
+    }
+  }
+  
+  private func setAlertContent(_ answerCorrect: Bool, tappedFlagName: String) {
+    if answerCorrect {
+      scoreTitle = "Correct"
+      alertMessage = Text("Your score is \(playerScore)")
+    } else {
+      scoreTitle = "Wrong"
+      alertMessage = Text("That's the flag of \(tappedFlagName)!")
+    }
   }
 }
 
