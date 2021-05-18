@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct ConfigurationView: View {
-  
-  let isGameRunning = false
-  
-  var body: some View {
-    Button("Config!") {
-      
-    }
-    .padding()
-  }
-}
+//struct ConfigurationView: View {
+//  
+//  let isGameRunning = false
+//  
+//  var body: some View {
+//    Button("Config!") {
+//      
+//    }
+//    .padding()
+//  }
+//}
