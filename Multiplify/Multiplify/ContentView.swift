@@ -20,9 +20,14 @@ struct ContentView: View {
           } else {
             ConfigurationView()
           }
-          Button("Toogle!") {
+          Button(isGameRunning ? "Exit game" : "Let's play!") {
             isGameRunning.toggle()
           }
+          .frame(width: 200, height: 100, alignment: .center)
+          .background(Color.red)
+          .clipShape(Capsule())
+          .font(.largeTitle)
+          .foregroundColor(.white)
         }
       }
       .navigationBarTitle("Multiplify!")
@@ -38,10 +43,10 @@ struct ContentView_Previews: PreviewProvider {
 
 struct ConfigurationView: View {
   
-  @State private var firstNumber = 1
-  @State private var secondNumber = 1
+  @State var firstNumber = 1
+  @State var secondNumber = 1
   private var numberOfQuestions = [ "5", "10", "20", "All" ]
-  @State private var chosenNumberOfQuestions = 1
+  @State private var chosenNumberOfQuestions = "5"
   
   var body: some View {
     Form {
@@ -54,7 +59,7 @@ struct ConfigurationView: View {
         }
       }
       Section(header: Text("How many questions?")) {
-        Picker("\(numberOfQuestions[chosenNumberOfQuestions])", selection: $chosenNumberOfQuestions) {
+        Picker("Number of questions", selection: $chosenNumberOfQuestions) {
           ForEach(numberOfQuestions, id: \.self) { number in
             Text("\(number)")
           }
@@ -62,4 +67,24 @@ struct ConfigurationView: View {
       }
     }
   }
+}
+
+struct QuestionGenerator {
+  func generate(firstNumber: Int, secondNumber: Int, numberOfQuestions: Int) -> [Question] {
+    var questions: [Question] = []
+    for _ in 1...numberOfQuestions {
+      let firstNumber = Int.random(in: 1...firstNumber)
+      let secondNumber = Int.random(in: 1...secondNumber)
+      let answer = firstNumber * secondNumber
+      let questionString = "\(firstNumber)x\(secondNumber)"
+      let question = Question(answer: answer, question: questionString)
+      questions.append(question)
+    }
+    return questions
+  }
+}
+
+struct Question {
+  var answer: Int
+  var question: String
 }
