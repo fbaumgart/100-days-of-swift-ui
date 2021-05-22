@@ -9,7 +9,10 @@ struct Game {
   var firstNumber: Int
   var secondNumber: Int
   var gameVariant: GameVariant
+  
+  private let questionsGenerator = QuestionGenerator()
+  
   var questions: [Question] {
-    return [Question(answer: 4, question: "3x3")]
+    return questionsGenerator.generate(firstNumber: firstNumber, secondNumber: secondNumber, gameVariant: gameVariant)
   }
 }

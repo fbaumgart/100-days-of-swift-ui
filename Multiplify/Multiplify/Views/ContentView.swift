@@ -48,6 +48,10 @@ struct ContentView_Previews: PreviewProvider {
 struct GameView: View {
   
   var game: Game
+  @State private var currentQuestionNumber = 0
+  private var currentQuestion: Question {
+    game.questions[currentQuestionNumber]
+  }
   
   var body: some View {
     VStack {
