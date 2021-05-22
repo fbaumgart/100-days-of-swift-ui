@@ -9,10 +9,10 @@ import SwiftUI
 
 struct ConfigurationView: View {
   
-  @State var firstNumber = 1
-  @State var secondNumber = 1
+  @State var firstNumber = 10
+  @State var secondNumber = 10
   private var numberOfQuestions = [ "5", "10", "20", "All" ]
-  @State private var chosenNumberOfQuestions = "5"
+  @State private var chosenNumberOfQuestions = "All"
   var game: Game {
     return Game(firstNumber: firstNumber,
                 secondNumber: secondNumber,

@@ -9,14 +9,19 @@ import SwiftUI
 
 struct AnswerButtonsGroup: View {
   
+  var correctAnswer: Int
+  
   private let rows = 2
   private let buttonsPerRow = 2
+  private let buttonToPutAnswerTo = (row: Int.random(in: 0...1), button: Int.random(in: 0...1))
   
   var body: some View {
-    ForEach(0 ..< rows) { number in
+    ForEach(0 ..< rows) { rowNumber in
       HStack {
-        ForEach(0 ..< buttonsPerRow) { button in
-          AnswerButtonView(number: String(Int.random(in: 0...100)), color: .blue)
+        ForEach(0 ..< buttonsPerRow) { buttonNumber in
+          let currentButtonIndex = (row: rowNumber, button: buttonNumber)
+          let number = buttonToPutAnswerTo == currentButtonIndex ? String(correctAnswer) : String(Int.random(in: 0...100))
+          AnswerButtonView(number: number, color: .blue)
         }
       }
     }

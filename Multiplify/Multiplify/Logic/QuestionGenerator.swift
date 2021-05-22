@@ -34,11 +34,12 @@ struct QuestionGenerator {
         let number = a * b
         if !alreadyStoredAnswers.contains(number) {
           alreadyStoredAnswers.insert(number)
-          let question = Question(answer: number, question: "\(a)*\(b)")
+          let question = Question(answer: number, question: "\(a) x \(b)")
           questions.append(question)
         }
       }
     }
+    questions.shuffle()
     return questions
   }
 }

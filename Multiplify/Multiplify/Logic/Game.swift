@@ -9,10 +9,12 @@ struct Game {
   var firstNumber: Int
   var secondNumber: Int
   var gameVariant: GameVariant
+  var questions: [Question]
   
-  private let questionsGenerator = QuestionGenerator()
-  
-  var questions: [Question] {
-    return questionsGenerator.generate(firstNumber: firstNumber, secondNumber: secondNumber, gameVariant: gameVariant)
+  init(firstNumber: Int, secondNumber: Int, gameVariant: GameVariant) {
+    self.firstNumber = firstNumber
+    self.secondNumber = secondNumber
+    self.gameVariant = gameVariant
+    self.questions = QuestionGenerator().generate(firstNumber: firstNumber, secondNumber: secondNumber, gameVariant: gameVariant)
   }
 }

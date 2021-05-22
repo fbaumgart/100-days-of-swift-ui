@@ -49,18 +49,18 @@ struct GameView: View {
   
   var game: Game
   @State private var currentQuestionNumber = 0
-  private var currentQuestion: Question {
-    game.questions[currentQuestionNumber]
+  var questions: [Question] {
+    game.questions
   }
   
   var body: some View {
     VStack {
       Spacer()
-      GameViewHeader(question: "2 x 5")
+      GameViewHeader(question: questions[currentQuestionNumber].question)
       Spacer()
-      AnswerButtonsGroup()
+      AnswerButtonsGroup(correctAnswer: questions[currentQuestionNumber].answer)
       Spacer()
     }
-    .navigationBarTitle("Question 1 / 5", displayMode: .inline)
+    .navigationBarTitle("Question 1 / \(game.questions.count)", displayMode: .inline)
   }
 }
