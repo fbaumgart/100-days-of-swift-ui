@@ -31,10 +31,10 @@ struct ContentView: View {
             Form {
               Section(header: Text("I want to mulitply:")) {
                 Stepper(value: $firstNumber, in: 1...12, step: 1) {
-                  Text("From: \(firstNumber)")
+                  Text("1st number up to : \(firstNumber)")
                 }
                 Stepper(value: $secondNumber, in: 1...12, step: 1) {
-                  Text("To: \(secondNumber)")
+                  Text("2nd number up to: \(secondNumber)")
                 }
               }
               Section(header: Text("How many questions?")) {
@@ -48,7 +48,7 @@ struct ContentView: View {
             
           }
           if !isGameRunning {
-            Button(isGameRunning ? "Exit game" : "Let's play!") {
+            Button("Let's play!") {
               isGameRunning.toggle()
             }
             .frame(width: 200, height: 100, alignment: .center)

@@ -19,7 +19,7 @@ struct QuestionGenerator {
       let firstNumber = Int.random(in: 1...firstNumber)
       let secondNumber = Int.random(in: 1...secondNumber)
       let answer = firstNumber * secondNumber
-      let questionString = "\(firstNumber)x\(secondNumber)"
+      let questionString = "\(firstNumber) x \(secondNumber)"
       let question = Question(answer: answer, question: questionString)
       questions.append(question)
     }
@@ -27,14 +27,15 @@ struct QuestionGenerator {
   }
   
   private func generateAllVariants(firstNumber: Int, secondNumber: Int) -> [Question] {
-    var alreadyStoredAnswers: Set<Int> = []
+    var alreadyStoredQuestions: Set<String> = []
     var questions: [Question] = []
     for a in 1...firstNumber {
       for b in 1...secondNumber {
-        let number = a * b
-        if !alreadyStoredAnswers.contains(number) {
-          alreadyStoredAnswers.insert(number)
-          let question = Question(answer: number, question: "\(a) x \(b)")
+        let question = "\(a) x \(b)"
+        if !alreadyStoredQuestions.contains(question) {
+          alreadyStoredQuestions.insert(question)
+          let answer = a * b
+          let question = Question(answer: answer, question: question)
           questions.append(question)
         }
       }

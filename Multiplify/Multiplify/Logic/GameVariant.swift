@@ -26,6 +26,7 @@ enum GameVariant: String, CaseIterable {
     case "5": return .five
     case "10": return .ten
     case "20": return .twenty
+    case "All": return .all
     default: return .five
     }
   }
