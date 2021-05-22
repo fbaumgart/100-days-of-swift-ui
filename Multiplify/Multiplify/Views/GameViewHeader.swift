@@ -18,5 +18,7 @@ struct GameViewHeader: View {
         .font(.largeTitle)
         .bold()
     }
+    .transition(.slide)
+    .animation(.easeInOut)
   }
 }

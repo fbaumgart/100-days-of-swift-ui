@@ -26,5 +26,7 @@ struct AnswerButtonsGroup: View {
         }
       }
     }
+    .transition(.slide)
+    .animation(.easeIn)
   }
 }
