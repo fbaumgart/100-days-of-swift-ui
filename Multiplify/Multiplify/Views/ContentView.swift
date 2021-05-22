@@ -47,14 +47,16 @@ struct ContentView: View {
             }
             
           }
-          Button(isGameRunning ? "Exit game" : "Let's play!") {
-            isGameRunning.toggle()
+          if !isGameRunning {
+            Button(isGameRunning ? "Exit game" : "Let's play!") {
+              isGameRunning.toggle()
+            }
+            .frame(width: 200, height: 100, alignment: .center)
+            .background(Color.red)
+            .clipShape(Capsule())
+            .font(.largeTitle)
+            .foregroundColor(.white)
           }
-          .frame(width: 200, height: 100, alignment: .center)
-          .background(Color.red)
-          .clipShape(Capsule())
-          .font(.largeTitle)
-          .foregroundColor(.white)
         }
       }
       .navigationBarTitle("Multiplify!", displayMode: .large)
@@ -65,25 +67,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
     ContentView()
-  }
-}
-
-struct GameView: View {
-  
-  var game: Game
-  @State private var currentQuestionNumber = 0
-  var questions: [Question] {
-    game.questions
-  }
-  
-  var body: some View {
-    VStack {
-      Spacer()
-      GameViewHeader(question: questions[currentQuestionNumber].question)
-      Spacer()
-      AnswerButtonsGroup(correctAnswer: questions[currentQuestionNumber].answer)
-      Spacer()
-    }
-    .navigationBarTitle("Question 1 / \(game.questions.count)", displayMode: .inline)
   }
 }

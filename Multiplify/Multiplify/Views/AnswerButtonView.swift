@@ -11,10 +11,11 @@ struct AnswerButtonView: View {
   
   var number: String
   var color: Color
+  var onButtonPress: (String) -> Void
   
   var body: some View {
     Button(action: {
-      
+      onButtonPress(number)
     }, label: {
       Text(number)
         .foregroundColor(.white)

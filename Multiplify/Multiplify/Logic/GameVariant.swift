@@ -18,12 +18,7 @@ enum GameVariant: String, CaseIterable {
   }
   
   var toString: String {
-    switch self {
-    case .five: return "5"
-    case .ten: return "10"
-    case .twenty: return "20"
-    case .all: return "All"
-    }
+    self != .all ? String(toInt) : "All"
   }
   
   static func from(string: String) -> Self {
