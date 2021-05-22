@@ -17,19 +17,21 @@ enum GameVariant: String, CaseIterable {
     }
   }
   
+  var toString: String {
+    switch self {
+    case .five: return "5"
+    case .ten: return "10"
+    case .twenty: return "20"
+    case .all: return "All"
+    }
+  }
+  
   static func from(string: String) -> Self {
-    if string == "5" {
-      return .five
+    switch string {
+    case "5": return .five
+    case "10": return .ten
+    case "20": return .twenty
+    default: return .five
     }
-    if string == "10" {
-      return .ten
-    }
-    if string == "20" {
-      return .twenty
-    }
-    if string == "All" {
-      return .all
-    }
-    return .five
   }
 }

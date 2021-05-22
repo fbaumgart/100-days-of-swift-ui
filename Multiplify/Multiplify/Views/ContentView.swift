@@ -9,10 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
   
-  @State private var isGameRunning = true
-  @State private var configurationView = ConfigurationView()
+  @State private var isGameRunning = false
+  @State private var firstNumber = 1
+  @State private var secondNumber = 10
+  @State private var chosenNumberOfQuestions = "All"
+  
   private var game: Game {
-    configurationView.game
+    Game(firstNumber: firstNumber,
+         secondNumber: secondNumber,
+         gameVariant: GameVariant.from(string: chosenNumberOfQuestions))
   }
   
   var body: some View {
@@ -22,7 +27,25 @@ struct ContentView: View {
           if isGameRunning {
             GameView(game: game)
           } else {
-            configurationView
+            
+            Form {
+              Section(header: Text("I want to mulitply:")) {
+                Stepper(value: $firstNumber, in: 1...12, step: 1) {
+                  Text("From: \(firstNumber)")
+                }
+                Stepper(value: $secondNumber, in: 1...12, step: 1) {
+                  Text("To: \(secondNumber)")
+                }
+              }
+              Section(header: Text("How many questions?")) {
+                Picker("Number of questions", selection: $chosenNumberOfQuestions) {
+                  ForEach(GameVariant.allCases, id: \.self.toString) { number in
+                    Text("\(number.toString)")
+                  }
+                }
+              }
+            }
+            
           }
           Button(isGameRunning ? "Exit game" : "Let's play!") {
             isGameRunning.toggle()

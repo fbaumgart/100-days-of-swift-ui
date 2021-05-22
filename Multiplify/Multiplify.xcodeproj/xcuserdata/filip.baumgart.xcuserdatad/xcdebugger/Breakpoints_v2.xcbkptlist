@@ -7,32 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2BD1D52D-A7BE-4680-B199-F0F6D65EAA20"
+            uuid = "BF4C1AEF-2886-4494-8C60-1C582344E8BA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Multiplify/Views/AnswerButtonsGroup.swift"
+            filePath = "Multiplify/Views/ConfigurationView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "265C5B6E-25F3-4D5D-8DAF-BE00184B1824"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Multiplify/Views/GameViewHeader.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "body"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "game"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
