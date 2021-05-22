@@ -1,5 +1,5 @@
 //
-//  ConfigurationView.swift
+//  GameView.swift
 //  Multiplify
 //
 //  Created by Filip Baumgart on 18/05/2021.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-//struct ConfigurationView: View {
+//struct GameView: View {
 //  
-//  let isGameRunning = false
+//  let isGameRunning = true
 //  
 //  var body: some View {
-//    Button("Config!") {
+//    Button("Game!") {
 //      
 //    }
 //    .padding()
