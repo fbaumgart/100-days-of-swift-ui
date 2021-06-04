@@ -15,6 +15,7 @@
 		18517B05266A08AB0031E771 /* missions.json in Resources */ = {isa = PBXBuildFile; fileRef = 18517B03266A08AB0031E771 /* missions.json */; };
 		18517B07266A08D60031E771 /* Astronaut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18517B06266A08D60031E771 /* Astronaut.swift */; };
 		18517BBA266A1A240031E771 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18517BB9266A1A240031E771 /* Bundle-Decodable.swift */; };
+		18517BBE266A1D310031E771 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18517BBD266A1D310031E771 /* Mission.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		18517B03266A08AB0031E771 /* missions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = missions.json; sourceTree = "<group>"; };
 		18517B06266A08D60031E771 /* Astronaut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astronaut.swift; sourceTree = "<group>"; };
 		18517BB9266A1A240031E771 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		18517BBD266A1D310031E771 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				18517AFC2668CD590031E771 /* Info.plist */,
 				18517AF92668CD590031E771 /* Preview Content */,
 				18517B06266A08D60031E771 /* Astronaut.swift */,
+				18517BBD266A1D310031E771 /* Mission.swift */,
 				18517BB9266A1A240031E771 /* Bundle-Decodable.swift */,
 			);
 			path = Moonshot;
@@ -152,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18517BBE266A1D310031E771 /* Mission.swift in Sources */,
 				18517B07266A08D60031E771 /* Astronaut.swift in Sources */,
 				18517AF62668CD580031E771 /* ContentView.swift in Sources */,
 				18517AF42668CD580031E771 /* MoonshotApp.swift in Sources */,
