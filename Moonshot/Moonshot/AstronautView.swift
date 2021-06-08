@@ -9,6 +9,17 @@ import SwiftUI
 
 struct AstronautView: View {
   let astronaut: Astronaut
+  let missions: [Mission]
+  
+  init(astronaut: Astronaut) {
+    self.astronaut = astronaut
+    let allMissions: [Mission] = Bundle.main.decode("missions.json")
+    self.missions = allMissions.filter { mission in
+      mission.crew.first { crewMember in
+        crewMember.name == astronaut.id
+      } != nil
+    }
+  }
   
   var body: some View {
     GeometryReader { geometry in
@@ -26,6 +37,24 @@ struct AstronautView: View {
             .bold()
             .padding()
             .frame(maxWidth: .infinity, alignment: .leading)
+          
+          VStack(alignment: .leading) {
+            ForEach(missions, id: \.id) { mission in
+              HStack {
+                Image(mission.image)
+                  .resizable()
+                  .scaledToFit()
+                  .frame(width: 44, height: 44)
+                
+                VStack(alignment: .leading) {
+                  Text(mission.displayName)
+                    .font(.headline)
+                  Text(mission.formattedLaunchDate)
+                }
+              }
+              .padding(.leading, 10)
+            }
+          }.frame(maxWidth: .infinity, alignment: .leading)
         }
       }
     }
