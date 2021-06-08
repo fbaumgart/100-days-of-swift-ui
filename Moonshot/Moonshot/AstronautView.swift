@@ -21,6 +21,11 @@ struct AstronautView: View {
           
           Text(self.astronaut.description)
             .padding()
+          
+          Text("Missions:")
+            .bold()
+            .padding()
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
       }
     }
