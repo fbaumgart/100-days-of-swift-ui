@@ -8,20 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-  
-  @State private var lineWidth: CGFloat = 20
-  
-  var body: some View {
-    Arrow(lineWidth: lineWidth)
-      .fill(Color.red)
-      .frame(width: 200, height: 200, alignment: .center)
-      .onTapGesture {
-        withAnimation {
-          self.lineWidth = CGFloat.random(in: 20...30)
+    @State private var colorCycle = 0.0
+
+    var body: some View {
+        VStack {
+            ColorCyclingRectangle(amount: self.colorCycle)
+                .frame(width: 300, height: 300)
+
+            Slider(value: $colorCycle)
         }
-        
-      }
-  }
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -30,24 +26,27 @@ struct ContentView_Previews: PreviewProvider {
   }
 }
 
-struct Arrow: Shape {
-  
-  var lineWidth: CGFloat = 20
-  var animatableData: CGFloat {
-    get { lineWidth }
-    set { self.lineWidth = newValue }
-  }
-  
-  func path(in rect: CGRect) -> Path {
-    var path = Path()
-    path.move(to: CGPoint(x: rect.midX, y: rect.minY))
-    path.addLine(to: CGPoint(x: rect.minX + lineWidth, y: rect.midY))
-    path.addLine(to: CGPoint(x: rect.maxX - lineWidth, y: rect.midY))
-    path.addLine(to: CGPoint(x: rect.midX, y: rect.minY))
-    path.addRect(CGRect(x: rect.midX - (lineWidth / 2),
-                        y: rect.midY,
-                        width: lineWidth,
-                        height: 100))
-    return path
-  }
+struct ColorCyclingRectangle: View {
+    var amount = 0.0
+    var steps = 100
+
+    var body: some View {
+        ZStack {
+            ForEach(0..<steps) { value in
+                Rectangle()
+                    .inset(by: CGFloat(value))
+                    .strokeBorder(self.color(for: value, brightness: 1), lineWidth: 2)
+            }
+        }
+    }
+
+    func color(for value: Int, brightness: Double) -> Color {
+        var targetHue = Double(value) / Double(self.steps) + self.amount
+
+        if targetHue > 1 {
+            targetHue -= 1
+        }
+
+        return Color(hue: targetHue, saturation: 1, brightness: brightness)
+    }
 }
