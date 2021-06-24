@@ -8,14 +8,46 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        Text("Hello, world!")
-            .padding()
-    }
+  
+  @State private var lineWidth: CGFloat = 20
+  
+  var body: some View {
+    Arrow(lineWidth: lineWidth)
+      .fill(Color.red)
+      .frame(width: 200, height: 200, alignment: .center)
+      .onTapGesture {
+        withAnimation {
+          self.lineWidth = CGFloat.random(in: 20...30)
+        }
+        
+      }
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  static var previews: some View {
+    ContentView()
+  }
+}
+
+struct Arrow: Shape {
+  
+  var lineWidth: CGFloat = 20
+  var animatableData: CGFloat {
+    get { lineWidth }
+    set { self.lineWidth = newValue }
+  }
+  
+  func path(in rect: CGRect) -> Path {
+    var path = Path()
+    path.move(to: CGPoint(x: rect.midX, y: rect.minY))
+    path.addLine(to: CGPoint(x: rect.minX + lineWidth, y: rect.midY))
+    path.addLine(to: CGPoint(x: rect.maxX - lineWidth, y: rect.midY))
+    path.addLine(to: CGPoint(x: rect.midX, y: rect.minY))
+    path.addRect(CGRect(x: rect.midX - (lineWidth / 2),
+                        y: rect.midY,
+                        width: lineWidth,
+                        height: 100))
+    return path
+  }
 }
