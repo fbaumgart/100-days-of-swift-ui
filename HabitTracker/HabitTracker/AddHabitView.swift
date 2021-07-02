@@ -13,6 +13,7 @@ struct AddHabitView: View {
   @State private var description: String = ""
   @Environment(\.presentationMode) private var presentationMode
   @State private var isShowingError = false
+  @ObservedObject var habits: Habits
   
   var body: some View {
     NavigationView {
@@ -23,7 +24,7 @@ struct AddHabitView: View {
       .navigationTitle("Add new habit")
       .navigationBarItems(trailing: Button("Save", action: {
         verifyInput(success: { habit in
-          print(habit.name)
+          habits.items.append(habit)
           presentationMode.wrappedValue.dismiss()
         }, failure: {
           isShowingError.toggle()
@@ -48,6 +49,6 @@ struct AddHabitView: View {
 
 struct AddHabitView_Preview: PreviewProvider {
   static var previews: some View {
-    AddHabitView()
+    AddHabitView(habits: Habits())
   }
 }

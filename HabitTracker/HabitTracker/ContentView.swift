@@ -10,17 +10,18 @@ import SwiftUI
 struct ContentView: View {
   
   @State private var isShowingAddView = false
+  @StateObject private var habits = Habits()
   
   var body: some View {
     NavigationView {
-      HabitList()
+      HabitList(habits: habits.items)
         .navigationTitle("HabiTracker")
         .navigationBarItems(trailing: Button("Add", action: {
           isShowingAddView.toggle()
         }))
     }
     .sheet(isPresented: $isShowingAddView, content: {
-      AddHabitView()
+      AddHabitView(habits: habits)
     })
   }
 }

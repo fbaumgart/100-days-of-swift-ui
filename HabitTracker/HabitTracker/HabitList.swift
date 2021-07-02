@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HabitList: View {
-  var habits: [Habit] = []
+  var habits: [Habit]
   
   var body: some View {
     List(habits) { habit in
@@ -19,6 +19,6 @@ struct HabitList: View {
 
 struct HabitList_Preview: PreviewProvider {
   static var previews: some View {
-    HabitList()
+    HabitList(habits: [Habit(name: "test", description: "test")])
   }
 }
