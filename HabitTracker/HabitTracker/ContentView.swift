@@ -20,7 +20,7 @@ struct ContentView: View {
         }))
     }
     .sheet(isPresented: $isShowingAddView, content: {
-      Text("Hello")
+      AddHabitView()
     })
   }
 }
@@ -28,13 +28,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
     ContentView()
-  }
-}
-
-struct AddButton: View {
-  var body: some View {
-    Button("Add", action: {
-      
-    })
   }
 }
