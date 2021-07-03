@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18461E0C26904D7D0091530A /* HabitDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18461E0B26904D7D0091530A /* HabitDetailsView.swift */; };
 		18921CE4268FA7FE00A376FE /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18921CE3268FA7FE00A376FE /* AddHabitView.swift */; };
 		18921CE6268FAD2600A376FE /* Habits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18921CE5268FAD2600A376FE /* Habits.swift */; };
 		18DB24FE268E5C1200EED618 /* HabitTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB24FD268E5C1200EED618 /* HabitTrackerApp.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18461E0B26904D7D0091530A /* HabitDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailsView.swift; sourceTree = "<group>"; };
 		18921CE3268FA7FE00A376FE /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
 		18921CE5268FAD2600A376FE /* Habits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habits.swift; sourceTree = "<group>"; };
 		18DB24FA268E5C1200EED618 /* HabitTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				18DB24FD268E5C1200EED618 /* HabitTrackerApp.swift */,
+				18461E0B26904D7D0091530A /* HabitDetailsView.swift */,
 				18DB24FF268E5C1200EED618 /* ContentView.swift */,
 				18921CE3268FA7FE00A376FE /* AddHabitView.swift */,
 				18DB2510268E620900EED618 /* HabitList.swift */,
@@ -155,6 +158,7 @@
 			files = (
 				18DB250D268E616700EED618 /* Habit.swift in Sources */,
 				18DB250F268E619B00EED618 /* HabitRow.swift in Sources */,
+				18461E0C26904D7D0091530A /* HabitDetailsView.swift in Sources */,
 				18DB2500268E5C1200EED618 /* ContentView.swift in Sources */,
 				18DB2511268E620900EED618 /* HabitList.swift in Sources */,
 				18DB24FE268E5C1200EED618 /* HabitTrackerApp.swift in Sources */,

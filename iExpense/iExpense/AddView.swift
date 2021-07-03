@@ -32,13 +32,13 @@ struct AddView: View {
       }
       .navigationBarTitle("Add new expense")
       .navigationBarItems(trailing: Button("Save") {
-        verifyInput { item in
+        verifyInput(success: { item in
           expenses.items.append(item)
           presentationMode.wrappedValue.dismiss()
-        } failure: { error in
+        }, failure: { error in
           errorMessage = error.message
           isShowingErrorAlert.toggle()
-        }
+        })
       })
       .alert(isPresented: $isShowingErrorAlert, content: {
         Alert(title: Text("Invalid input!"), message: Text(errorMessage), dismissButton: .default(Text("Close")))

@@ -12,7 +12,11 @@ struct HabitList: View {
   
   var body: some View {
     List(habits) { habit in
-      HabitRow(habit: habit)
+      NavigationLink(
+        destination: HabitDetailsView(habit: habit),
+        label: {
+          HabitRow(habit: habit)
+        })
     }
   }
 }
