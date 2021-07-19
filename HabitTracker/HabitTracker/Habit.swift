@@ -11,4 +11,5 @@ struct Habit: Identifiable {
   var id = UUID()
   var name: String
   var description: String
+  var activityCounter = 0
 }

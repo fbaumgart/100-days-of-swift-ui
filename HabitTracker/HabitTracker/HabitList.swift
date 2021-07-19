@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct HabitList: View {
-  var habits: [Habit]
+  @ObservedObject var habits: Habits
   
   var body: some View {
-    List(habits) { habit in
+    List(habits.items) { habit in
       NavigationLink(
-        destination: HabitDetailsView(habit: habit),
+        destination: HabitDetailsView(habit: habit, habits: habits)
+          .navigationTitle("Details"),
         label: {
           HabitRow(habit: habit)
         })
@@ -23,6 +24,6 @@ struct HabitList: View {
 
 struct HabitList_Preview: PreviewProvider {
   static var previews: some View {
-    HabitList(habits: [Habit(name: "test", description: "test")])
+    HabitList(habits: Habits())
   }
 }

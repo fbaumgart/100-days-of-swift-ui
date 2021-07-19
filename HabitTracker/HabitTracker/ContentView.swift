@@ -14,7 +14,7 @@ struct ContentView: View {
   
   var body: some View {
     NavigationView {
-      HabitList(habits: habits.items)
+      HabitList(habits: habits)
         .navigationTitle("HabiTracker")
         .navigationBarItems(trailing: Button("Add", action: {
           isShowingAddView.toggle()
